@@ -8,12 +8,7 @@
     "test": "vitest",
     "cf-typegen": "wrangler types"
   },
-  "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.5.2",
-    "@cloudflare/workers-types": "^4.20240909.0"
-  },
   "dependencies": {
-    "@hono/auth-js": "^1.0.10",
     "@hono/valibot-validator": "^0.3.0",
     "@hono/zod-validator": "^0.2.2",
     "bcrypt-ts": "^5.0.2",
