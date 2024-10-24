@@ -43,7 +43,7 @@ export default function Route() {
         <GoogleMap
           style={{ height: "100vh" }}
           defaultCenter={{ lat: 35.67907222245488, lng: 139.75969871994417 }}
-          defaultZoom={5}
+          defaultZoom={10}
           gestureHandling={"greedy"}
           disableDefaultUI={true}
         >
