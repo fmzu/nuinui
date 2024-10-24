@@ -6,7 +6,7 @@ import {
   Marker,
 } from "@vis.gl/react-google-maps"
 import { useRef, useState } from "react"
-import { adress } from "~/lib/tokyo"
+import { adress } from "~/lib/tokyo-adress"
 
 export const meta: MetaFunction = () => {
   return [
