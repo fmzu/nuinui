@@ -7,10 +7,10 @@ import {
   ScrollRestoration,
 } from "@remix-run/react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { Toaster } from "./components/ui/toaster"
 
 import "./tailwind.css"
 import { SessionProvider } from "@hono/auth-js/react"
+import { Toaster } from "~/components/ui/toaster"
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },

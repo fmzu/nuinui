@@ -1,6 +1,4 @@
 import type { MetaFunction } from "@remix-run/node"
-import { Card } from "~/components/ui/card"
-import { TimetableTable } from "./components/timetable-table"
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,10 +10,7 @@ export const meta: MetaFunction = () => {
 export default function Route() {
   return (
     <div className="p-4">
-      <p>{"2024年度前期履修登録"}</p>
-      <Card>
-        <TimetableTable />
-      </Card>
+      <p>{"nuinui"}</p>
     </div>
   )
 }
