@@ -1,11 +1,11 @@
 #:schema ../node_modules/wrangler/config-schema.json
 
-name = "timetable-api"
+name = "nuinui-api"
 main = "index.ts"
 compatibility_date = "2024-09-09"
 compatibility_flags = ["nodejs_compat"]
 
 [[d1_databases]]
 binding = "DB"
-database_name = "timetable"
-database_id = "69e1bc2f-f4f6-4573-859e-ee696d96bb77"
+database_name = "nuinui"
+database_id = "ae01e627-dfab-48da-b8f4-b3d688ca0a4b"

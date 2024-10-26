@@ -1,9 +1,9 @@
 #:schema ../node_modules/wrangler/config-schema.json
 
-name = "timetable-ui"
+name = "nuinui-ui"
 compatibility_date = "2024-09-09"
 pages_build_output_dir = "./build/client"
 
 [[services]]
 binding = "API"
-service = "timetable-api"
+service = "nuinui-api"
