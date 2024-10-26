@@ -19,10 +19,14 @@ export default function Route() {
     async mutationFn() {
       const resp = await client.api.posts.$post({
         json: {
-          message: "Hello, World!",
+          message: message,
           imageUrl: null,
         },
       })
+
+      const json = await resp.json()
+
+      return json
     },
   })
 
@@ -40,12 +44,24 @@ export default function Route() {
   return (
     <div className="p-4 space-y-2">
       <p>{"nuinui"}</p>
-      <div className="space-y-2">
-        <Textarea />
+      <form
+        className="space-y-2"
+        onSubmit={(event) => {
+          event.preventDefault()
+          onSubmit()
+        }}
+      >
+        <Textarea
+          placeholder="メッセージ"
+          value={message}
+          onChange={(event) => {
+            setMessage(event.target.value)
+          }}
+        />
         <div className="flex justify-end">
-          <Button onClick={onSubmit}>{"投稿"}</Button>
+          <Button>{"投稿"}</Button>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
