@@ -9,10 +9,9 @@ import { schema } from "~/lib/schema"
 
 const app = apiFactory.createApp()
 
-export const usersRoutes = app
+export const userRoutes = app
   /**
    * アカウントを作成する
-   * @deprecated
    */
   .post(
     "/",
@@ -33,11 +32,6 @@ export const usersRoutes = app
       const hashedPassword = hashSync(json.password, salt)
 
       const userUuid = crypto.randomUUID()
-      /**
-       * 0: 学生，1: 教員，2: 管理者
-       * あとでオブジェクトにする
-       */
-      const roll = 0
 
       await db.insert(schema.users).values({
         id: userUuid,
@@ -45,7 +39,6 @@ export const usersRoutes = app
         hashedPassword: hashedPassword,
         login: crypto.randomUUID(),
         name: crypto.randomUUID(),
-        role: roll,
       })
 
       return c.json({}, {})
@@ -93,6 +86,7 @@ export const usersRoutes = app
     const userJson = {
       id: user.id,
       name: user.name,
+      avatarIconUrl: user.avatarIconUrl,
     }
 
     return c.json(userJson)
@@ -100,21 +94,45 @@ export const usersRoutes = app
   /**
    * アカウントを更新する
    */
-  .put("/:user", async (c) => {
-    return c.json({})
-  })
-  /**
-   * アカウントを削除する
-   */
   .put(
-    "/:user",
+    "/users/:user",
     vValidator(
       "json",
       object({
-        id: string(),
+        name: string(),
+        email: string(),
       }),
     ),
     async (c) => {
+      const db = drizzle(c.env.DB)
+
+      const userId = c.req.param("user")
+
+      const json = c.req.valid("json")
+
+      await db
+        .update(schema.users)
+        .set({
+          name: json.name,
+          email: json.email,
+        })
+        .where(eq(schema.users.id, userId))
+
       return c.json({})
     },
   )
+  /**
+   * アカウントを削除する
+   */
+  /**
+   * アカウントを削除する
+   */
+  .delete("/users/:user", async (c) => {
+    const db = drizzle(c.env.DB)
+
+    const userId = c.req.param("user")
+
+    await db.delete(schema.users).where(eq(schema.users.id, userId))
+
+    return c.json({})
+  })
