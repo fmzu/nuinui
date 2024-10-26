@@ -6,6 +6,7 @@
     "dev": "wrangler dev",
     "start": "wrangler dev",
     "test": "vitest",
+    "studio": "drizzle-kit studio --config drizzle.config.local.ts",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {

@@ -2,6 +2,11 @@
 bun run --cwd api dev
 bun run --cwd ui dev
 
+Drizzle-studio
+
+```
+bun run --cwd api studio
+```
 
 デプロイ(どっちもdeployするときはapiの方から順番に)
 

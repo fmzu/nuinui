@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.1",
+    "@libsql/client": "^0.14.0",
     "@types/bun": "latest",
     "wrangler": "3.57.1"
   },
