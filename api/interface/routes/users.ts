@@ -18,6 +18,7 @@ export const userRoutes = app
     vValidator(
       "json",
       object({
+        name: string(),
         email: string(),
         password: string(),
       }),
@@ -38,7 +39,7 @@ export const userRoutes = app
         email: json.email,
         hashedPassword: hashedPassword,
         login: crypto.randomUUID(),
-        name: crypto.randomUUID(),
+        name: json.name,
       })
 
       return c.json({}, {})
