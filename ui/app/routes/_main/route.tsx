@@ -1,5 +1,6 @@
 import { useSession } from "@hono/auth-js/react"
 import { Outlet } from "@remix-run/react"
+import { LoginPage } from "~/components/login-page"
 import MainHeader from "~/routes/_main/components/main-header"
 
 export default function MainLayout() {
@@ -9,10 +10,12 @@ export default function MainLayout() {
     return <p>{"loading"}</p>
   }
 
-  // ログインしていない場合はログインページにリダイレクトする
-  // if (session.status === "unauthenticated") {
-  //   return <LoginPage />
-  // }
+  /**
+   * ログインしていない場合はログインページにリダイレクトする
+   */
+  if (session.status === "unauthenticated") {
+    return <LoginPage />
+  }
 
   return (
     <>

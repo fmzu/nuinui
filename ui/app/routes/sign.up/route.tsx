@@ -1,3 +1,4 @@
+import { useNavigate } from "@remix-run/react"
 import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
 import { Button } from "~/components/ui/button"
@@ -10,6 +11,8 @@ import { client } from "~/lib/client"
  * @returns
  */
 export default function Route() {
+  const navigate = useNavigate()
+
   const [name, setName] = useState("")
 
   const [loginId, setLoginId] = useState("")
@@ -32,10 +35,13 @@ export default function Route() {
     },
   })
 
-  const onSubmit = () => {
-    const result = mutation.mutate()
+  const onSubmit = async () => {
+    const result = await mutation.mutate()
+
     alert("アカウントを作成しました")
-    window.location.reload()
+
+    navigate("/sign/in")
+
     if (result === null) {
       return
     }

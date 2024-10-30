@@ -96,7 +96,7 @@ export const userRoutes = app
    * アカウントを更新する
    */
   .put(
-    "/users/:user",
+    "/:user",
     vValidator(
       "json",
       object({
@@ -128,7 +128,7 @@ export const userRoutes = app
   /**
    * アカウントを削除する
    */
-  .delete("/users/:user", async (c) => {
+  .delete("/:user", async (c) => {
     const db = drizzle(c.env.DB)
 
     const userId = c.req.param("user")

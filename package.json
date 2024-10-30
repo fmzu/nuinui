@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@cloudflare/workers-types": "^4.20240909.0",
-    "@hono/auth-js": "^1.0.10"
+    "@hono/auth-js": "^1.0.13"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
