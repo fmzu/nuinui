@@ -15,28 +15,28 @@ export default function Route() {
 
   const mutation = useMutation({
     async mutationFn() {
-      console.log("A", loginId)
       const resp = await signIn("credentials", {
         email: loginId,
         password: password,
         redirect: false,
       })
-      console.log("B", resp)
+
       if (resp?.status !== 200) {
         return "ログインに失敗しました"
       }
-      console.log("C")
+
       return null
     },
   })
 
   const onSubmit = async () => {
-    console.log("D")
     const result = await mutation.mutateAsync()
+
     if (result === null) {
       // navigate("/")
       return
     }
+
     toast(result)
     // navigate("/")
   }
