@@ -9,7 +9,7 @@ export const likeRoutes = app
    * いいねを作成する
    */
   .post(
-    "/",
+    "/likes",
     vValidator(
       "json",
       object({
@@ -25,7 +25,7 @@ export const likeRoutes = app
    * いいねを削除する
    */
   .put(
-    "/:like",
+    "/likes/:like",
     vValidator(
       "json",
       object({

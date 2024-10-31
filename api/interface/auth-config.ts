@@ -20,7 +20,6 @@ export function authConfig(c: Context): AuthConfig {
           if (typeof credentials.email !== "string") {
             return null
           }
-
           if (typeof credentials.password !== "string") {
             return null
           }

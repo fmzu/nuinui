@@ -14,7 +14,7 @@ export const postRoutes = app
    * 投稿を作成する
    */
   .post(
-    "/",
+    "/posts",
     verifyAuth(),
     vValidator(
       "json",
@@ -60,7 +60,7 @@ export const postRoutes = app
   /**
    * たくさんの投稿を取得する
    */
-  .get("/", async (c) => {
+  .get("/posts", async (c) => {
     const db = drizzle(c.env.DB, { schema })
 
     const posts = await db.select().from(schema.posts)
@@ -76,7 +76,7 @@ export const postRoutes = app
   /**
    * 一つの投稿を取得する
    */
-  .get("/:post", async (c) => {
+  .get("/posts/:post", async (c) => {
     const db = drizzle(c.env.DB, { schema })
 
     const postId = c.req.param("post")
@@ -99,7 +99,7 @@ export const postRoutes = app
    * 投稿を更新する
    */
   .put(
-    "/:post",
+    "/posts/:post",
     vValidator(
       "json",
       object({
@@ -114,7 +114,7 @@ export const postRoutes = app
   /**
    * 投稿を削除する
    */
-  .delete("/:post", async (c) => {
+  .delete("/posts/:post", async (c) => {
     const db = drizzle(c.env.DB, { schema })
 
     const postId = c.req.param("post")
